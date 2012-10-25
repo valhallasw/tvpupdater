@@ -1,0 +1,8 @@
+*.lwp
+*.pyc
+*.ctrl
+*.old
+apicache
+bin
+include
+lib
