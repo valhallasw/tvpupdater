@@ -1,4 +1,5 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $DIR/bin/activate
-python $DIR/src/wispagina.py > /dev/null
+export PYWIKIBOT2_DIR=$DIR
+python $DIR/src/wispagina.py $@ > /dev/null
