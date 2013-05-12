@@ -41,9 +41,10 @@ if time.localtime()[3] == 0 or (len(sys.argv) == 2 and sys.argv[1] == "-force"):
   P = wikipedia.Page(wikipedia.getSite(u'nl'), pagename)
   if not P.exists():          # als 'ie bestaat doe ik lekker niks ;)
     P.put(inhoud)
-  
-  delen = mpInhoud.split("<!-- EINDE QUEUE -->")
-  mpInhoud = delen[0] + "<!-- {{"+pagename+"}} -->\n<!-- EINDE QUEUE -->" + delen[1]
+
+  if P.title() not in mpInhoud:
+    delen = mpInhoud.split("<!-- EINDE QUEUE -->")
+    mpInhoud = delen[0] + "<!-- {{"+pagename+"}} -->\n<!-- EINDE QUEUE -->" + delen[1]
   
   mainpage.put(mpInhoud)
 
