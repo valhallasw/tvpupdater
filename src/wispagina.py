@@ -9,8 +9,8 @@ os.environ['TZ'] = 'Europe/Amsterdam'
 import time, datetime
 if time.localtime()[3] == 0 or (len(sys.argv) == 2 and sys.argv[1] == "-force"):
   import pywikibot as wikipedia
-  
-  wikipedia.setAction(u'Verwijderlijstupdater van [[Gebruiker:Valhallasw]] ([[Gebruiker:Valhallasw/toolserver/bot|changelog]])')
+  import socket 
+  wikipedia.setAction(u'Verwijderlijstupdater van [[Gebruiker:Valhallasw]] ([[Gebruiker:Valhallasw/toolserver/bot|changelog]]) @ %s' % socket.gethostname())
   
   now = datetime.datetime(*time.localtime()[0:5])
   intwoweeks = now + datetime.timedelta(weeks=2)
